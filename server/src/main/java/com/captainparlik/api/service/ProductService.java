@@ -18,6 +18,6 @@ public class ProductService {
     }
 
     public Product findById(Long id) {
-        return productRepository.findByIdAndVisibleTrue(id).orElseThrow();
+            return productRepository.findByIdAndVisibleTrue(id).orElseThrow();
     }
 }

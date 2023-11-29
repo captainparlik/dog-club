@@ -3,12 +3,18 @@ package com.captainparlik.api.model;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Schema(title = "Order", description = "Client orders")
 public class ProductOrder {
 
@@ -33,7 +39,7 @@ public class ProductOrder {
     private String city;
 
     @Schema(description = "Client products")
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Product> product;
 
     @Schema(description = "Delivery Methods", example = "NOVA_POST")

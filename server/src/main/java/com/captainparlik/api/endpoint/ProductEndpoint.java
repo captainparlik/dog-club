@@ -2,6 +2,7 @@ package com.captainparlik.api.endpoint;
 
 import com.captainparlik.api.model.Product;
 import com.captainparlik.api.service.ProductService;
+import com.captainparlik.exception.dto.ErrorResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -52,7 +53,8 @@ public class ProductEndpoint {
                             description = "Product not Found",
                             responseCode = "404",
                             content = {@Content(
-                                    mediaType = "application/json")}
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = ErrorResponse.class))}
                     )
             }
     )
